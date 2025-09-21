@@ -86,3 +86,5 @@ Clone this repo and place the plugin in your beets plugin directory (usually `~/
 git clone https://github.com/yourusername/beets-lastfmrating.git
 cp beets-lastfmrating/lastfmrating.py ~/.config/beets/beetsplug/
 ```
+📷 Screenshots
+
