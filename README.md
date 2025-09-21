@@ -93,6 +93,7 @@ cp beets-lastfmrating/lastfmrating.py ~/.config/beets/beetsplug/
 ![Kodi track rating2](Screenshots/trackrating.png)
 
 <p float="left">
-  <img src="Screenshots/albumrating.png" width="300" />
-  <img src="Screenshots/albumrating2.png" width="300" />
+  <img src="Screenshots/albumrating.png" width="500" />
+  <img src="Screenshots/albumrating2.png" width="500" />
+  <img src="Screenshots/trackrating.png" width="500" />
 </p>
