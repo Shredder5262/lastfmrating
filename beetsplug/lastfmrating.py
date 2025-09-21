@@ -82,7 +82,6 @@ class LastfmRating(BeetsPlugin):
     # Kodi ID lookups with optional fallback
     # ------------------------
     def get_kodi_songid(self, artist, title, album=None):
-        # First try with album filter
         base_filter = [
             {"field": "artist", "operator": "is", "value": artist},
             {"field": "title", "operator": "is", "value": title}
@@ -105,7 +104,7 @@ class LastfmRating(BeetsPlugin):
         if not err and resp and "result" in resp and "songs" in resp["result"]:
             songs = resp["result"].get("songs") or []
 
-        # If no results, decide on fallback based on config
+        # Fallback if strict_album_match is False
         if not songs and album and not self.config['strict_album_match'].get():
             self._log.warning(
                 "No exact match for '{} - {}' in album '{}', retrying without album filter",
@@ -167,6 +166,9 @@ class LastfmRating(BeetsPlugin):
     # Rating calculation
     # ------------------------
     def map_listeners_to_rating(self, listeners, min_listeners, max_listeners):
+        min_cutoff = self.config['min_listener_cutoff'].get()
+        if listeners <= min_cutoff:
+            return 1
         if max_listeners == min_listeners:
             return 5
         cutoff = min_listeners + 0.95 * (max_listeners - min_listeners)
@@ -227,23 +229,28 @@ class LastfmRating(BeetsPlugin):
         for item, listeners in zip(album.items(), track_listeners):
             rating = self.map_listeners_to_rating(listeners, min_listeners, max_listeners)
             ratings.append(rating)
-            # Show ratings only at -v
-            self._log.debug(
+
+            # Always show pretend output, show real ratings only with -v
+            log_fn = self._log.info if pretend else self._log.debug
+            log_fn(
                 "{}Set Rating={} for track '{}' ({} listeners)",
                 "[Pretend] " if pretend else "",
                 rating, item.title, listeners
             )
+
             if not pretend:
                 item['lastfm_track_rating'] = rating
                 item.store()
                 self.push_track_rating(artist, item.title, album_title, rating, pretend)
 
         album_rating = float(median(ratings))
-        self._log.debug(
+        log_fn = self._log.info if pretend else self._log.debug
+        log_fn(
             "{}Set AlbumRating={:.1f} (median of {} tracks) for album '{}'",
             "[Pretend] " if pretend else "",
             album_rating, len(ratings), album_title
         )
+
         if not pretend:
             album['lastfm_album_rating'] = album_rating
             album.store()
