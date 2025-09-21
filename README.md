@@ -19,9 +19,11 @@ A [beets](https://beets.io/) plugin that **fetches Last.fm listener stats and ma
   - `lastfm_album_rating` (per album)  
 
 ---
-Enable it in your beets config.yaml:
-`plugins: lastfmrating`
+```yaml
+plugins: lastfmrating
+```
 
+---
 ## 📦 Installation
 
 Clone this repo and place the plugin in your beets plugin directory (usually `~/.config/beets/beetsplug/`):
