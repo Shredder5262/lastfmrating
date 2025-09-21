@@ -97,7 +97,9 @@ cp beets-lastfmrating/lastfmrating.py ~/.config/beets/beetsplug/
   <img src="Screenshots/trackrating.png" width="400" />
   <img src="Screenshots/visualizationrating.png" width="400" />
 </p>
+
 ---
+
 📝 License
 MIT License. See LICENSE for details.
 
