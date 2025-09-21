@@ -19,7 +19,9 @@ A [beets](https://beets.io/) plugin that **fetches Last.fm listener stats and ma
   - `lastfm_album_rating` (per album)  
 
 ---
-```yaml
+yaml
+```
+
 plugins: lastfmrating
 ```
 
