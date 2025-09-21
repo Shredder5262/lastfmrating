@@ -88,4 +88,5 @@ cp beets-lastfmrating/lastfmrating.py ~/.config/beets/beetsplug/
 ```
 📷 Screenshots
 ### Ratings pushed into Kodi
-![Kodi album rating](Screenshots/2025-09-21 14_46_10-Kodi.png)
+![Kodi album rating](Screenshots/albumrating.png)
+![Kodi album rating2](Screenshots/albumrating2.png)
