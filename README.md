@@ -90,3 +90,9 @@ cp beets-lastfmrating/lastfmrating.py ~/.config/beets/beetsplug/
 ### Ratings pushed into Kodi
 ![Kodi album rating](Screenshots/albumrating.png)
 ![Kodi album rating2](Screenshots/albumrating2.png)
+![Kodi track rating2](Screenshots/trackrating.png)
+
+<p float="left">
+  <img src="Screenshots/albumrating.png" width="300" />
+  <img src="Screenshots/albumrating2.png" width="300" />
+</p>
