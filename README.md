@@ -27,3 +27,7 @@ Clone this repo and place the plugin in your beets plugin directory (usually `~/
 ```bash
 git clone https://github.com/yourusername/beets-lastfmrating.git
 cp beets-lastfmrating/lastfmrating.py ~/.config/beets/beetsplug/
+
+Enable it in your beets config.yaml:
+
+plugins: lastfmrating
