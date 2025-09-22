@@ -39,7 +39,6 @@ lastfmrating:
 ```
 - `apikey`: Your Last.fm API key
 - `push_to_kodi`: Push ratings into Kodi (default: true)
-- `debug_api`: Print full API request/response logs (default: false)
 - `strict_album_match`: Only update tracks that belong to the album currently being processed (helps with compilations)
 ---
 🚀 Usage
